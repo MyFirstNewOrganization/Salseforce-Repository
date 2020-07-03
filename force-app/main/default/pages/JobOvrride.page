@@ -1,0 +1,47 @@
+<apex:page standardController="Job__c" extensions="JobOverrideClass">
+
+    
+<script type="text/javascript">
+
+ function getRemoteposition() 
+    {
+   			
+        Visualforce.remoting.Manager.invokeAction(
+            //Invoking controller action getcon
+            '{!$RemoteAction.JobOverrideClass.getcon}',
+            
+            function(result, event)
+            {
+             
+               if(event.status)
+               {
+					Windows.alert("zala");                                                          
+               }  
+            },
+            {escape: true}
+        );
+    }
+</script>
+
+   
+    <button onclick="getRemoteposition()">Increase position</button>
+
+    
+	<apex:tabPanel >
+            
+        <apex:tab label="Details">
+            <apex:detail relatedList="false" title="true"/>
+        </apex:tab>  
+        
+          <apex:tab label="Jobs">
+             <apex:relatedList subject="{!Job__c}" list="jobs__r"/>
+        </apex:tab>     
+
+         <apex:tab label="Candidates and Jobs">
+             <apex:relatedList subject="{!Job__c}" list="candidate_and_jobs__r"/>
+        </apex:tab>     
+
+
+    </apex:tabPanel>
+
+</apex:page>

@@ -1,0 +1,6 @@
+<apex:page controller="movieclass" >
+    //The field is for test vs code
+
+    <c:RelatedListComponent records="{!records}" fields="{!fields}"></c:RelatedListComponent>
+    
+</apex:page>

@@ -1,0 +1,25 @@
+<apex:page standardController="Candidate_Yourname__c" recordSetVar="can" showHeader="false" sidebar="false">
+  <apex:form id="theForm">
+    <apex:pageBlock title="Viewing candiadte Details">
+   
+            <apex:pageBlockSection title="colapsable section" >
+               <apex:pageBlockTable value="{!can}" var="c">
+                     <apex:column value="{!c.Country__c}"/>
+                   <apex:column value="{!c.Name}"/>
+                   <apex:column value="{!c.Status__c}"/>
+                   <apex:column value="{!c.Date__c}"/>
+                </apex:pageBlockTable>>
+                
+                </apex:pageBlockSection>
+       <br/>
+      
+                <apex:commandButton value="previous" action="{!previous}"/>
+                <apex:commandButton value="First" action="{!First}"/>
+                <apex:commandButton value="Next" action="{!Next}"/>
+                <apex:commandButton value="Last" action="{!Last}"/>
+                
+
+         </apex:pageBlock>
+        </apex:form> 
+   
+</apex:page>

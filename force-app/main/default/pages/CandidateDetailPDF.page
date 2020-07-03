@@ -1,0 +1,26 @@
+<apex:page standardController="Candidate_Yourname__c" renderAs="PDF">    
+    <h1>candidate Details</h1>
+  <apex:panelGrid columns="2">
+      
+      <apex:outputLabel for="Name" value="Name"/>
+      <apex:outputText id="Name" value="{!Candidate_Yourname__c.Name}"/>
+      
+      <apex:outputLabel for="Email" value="Email"/>
+      <apex:outputText id="Email" value="{!Candidate_Yourname__c.Email__c}"/>
+      
+      <apex:outputLabel for="Status" value="Status"/>
+      <apex:outputText id="Status" value="{!Candidate_Yourname__c.Status__c}"/>
+      
+      <apex:outputLabel for="Expected Payment" value="Expected Payment"/>
+      <apex:outputText id="ExpectedPayment" value="{0,number,currency}">
+
+          <apex:param value="{!Candidate_Yourname__c.Expected_Payment__c}"/>
+
+      </apex:outputText>
+      <apex:outputLabel for="Country" value="Country"/>
+      <apex:outputText id="Country" value="{!Candidate_Yourname__c.Country__c}"/>
+      
+      <apex:detail relatedList="false"/>
+
+    </apex:panelGrid>
+ </apex:page>

@@ -1,0 +1,21 @@
+<apex:page standardController="Student__c">
+
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection >
+
+        <apex:inputField value="{!Student__c.Name}"/>
+        <apex:inputField value="{!Student__c.Email_id__c}"/>
+        
+</apex:pageBlockSection>
+
+        <apex:pageBlockButtons location="top">
+        <apex:commandButton value="save" action="{!save}"/>
+        <apex:commandButton value="edit" action="{!edit}"/>
+        <apex:commandButton value="update" action="{!delete}"/>
+        
+    </apex:pageBlockButtons>
+</apex:pageBlock>
+</apex:form>
+
+</apex:page>

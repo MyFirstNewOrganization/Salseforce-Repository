@@ -1,0 +1,95 @@
+<apex:page controller="SaveForm" tabstyle="Candidate_Yourname__c" showHeader="false" id="page" >
+
+    
+ <apex:form id="form">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   
+
+<script>
+    
+ $('.fieldToHide').hide();
+       
+      function funshow()
+   {
+        $("[id$=op2]").toggle();
+   }
+</script>
+     
+          
+ <style type="text/css">
+        .fieldToHide { display: none; }
+</style>
+ 
+     
+<apex:pageBlock >
+             
+	   
+        <apex:pageBlockSection title="Details" columns="2" collapsible="true" id="ob1">
+				
+                 <apex:pageBlockSectionItem >
+                     <apex:outputLabel for="activationCounter"/>
+                   	  <apex:outputPanel id="op1">
+                      <apex:commandButton value="Show New Candidate" reRender="null" id="cb1"  onclick="funshow();"/>
+                    </apex:outputPanel>   
+                 </apex:pageBlockSectionItem> 
+          </apex:pageBlockSection>
+           
+             
+             
+
+			 
+                 
+            <apex:pageBlockSection title="New Candidate Form" columns="3" collapsible="true" id="ob2">
+                <apex:pageBlockSectionItem >
+                     <apex:outputLabel for="activationCounter"/>
+                 			   
+                			<apex:outputPanel id="op2" styleClass="fieldToHide" >
+       						 
+                 Salutation : <apex:inputField value="{!mo.Salutation__c}"/>  <br/> <br/>
+				First Name : <apex:inputField value="{!mo.Name}"/>       <br/>  <br/>
+                Last Name :<apex:inputField value="{!mo.Last_Name__c}"/>       <br/>    <br/>   
+                Country : <apex:inputField value="{!mo.Country__c}"/>    <br/>   <br/>
+                                
+                                  
+                Email:	<apex:inputField value="{!mo.Email__c}"/>         <br/>  
+                Job Applied : <apex:inputField value="{!mo.Apply_job__c}"/>  <br/>  
+                Status : <apex:inputField value="{!mo.Status__c}"/>         <br/>  
+               Application Date :<apex:inputField value="{!mo.Date__c}"/>  <br/>   <br/> 	
+               Payment Expected : <apex:inputField value="{!mo.Expected_Payment__c}"/>   <br/>  
+                
+          
+              
+                  <apex:commandButton value="Insert" action="{!saveme}"/>
+             
+                      </apex:outputPanel>  
+                                 
+				 </apex:pageBlockSectionItem>                
+          
+         </apex:pageBlockSection>
+
+             
+             
+
+      
+             <apex:pageBlockSection title="Display Candidate" columns="2" collapsible="true" id="ob3">
+
+             <apex:pageBlockTable value="{!showList}" id="candidateId" var="a1">
+                 
+                                 <apex:column headerValue="candidate Name" value="{!a1.Name}"/>
+                     			 <apex:column headerValue="Last Name " value="{!a1.Last_Name__c}"/>
+                            	 <apex:column headerValue="Country " value="{!a1.Country__c}"/>
+                            	 <apex:column headerValue="Email " value="{!a1.Email__c}"/>
+                            	 <apex:column headerValue="Job Applied " value="{!a1.Apply_job__c}"/>
+                            	 <apex:column headerValue="Status " value="{!a1.Status__c}"/>
+                            	 <apex:column headerValue="Date of application " value="{!a1.Date__c}"/>
+                            	 <apex:column headerValue="Payment Expected" value="{!a1.Expected_Payment__c}"/>
+						
+  				
+              			</apex:pageBlockTable>
+
+            </apex:pageBlockSection>
+       
+           
+          </apex:pageBlock>
+        </apex:form>
+</apex:page>
